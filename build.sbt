@@ -4,7 +4,6 @@ ThisBuild / scalaVersion := "2.12.8"
 
 lazy val proto = (project in file("proto"))
   .enablePlugins(AkkaGrpcPlugin)
-  .settings()
 
 lazy val server = (project in file("server"))
   .dependsOn(proto)
@@ -14,3 +13,5 @@ lazy val server = (project in file("server"))
   )
 
 lazy val client = (project in file("client"))
+  .dependsOn(proto)
+  .enablePlugins(AkkaGrpcPlugin)
